@@ -1,0 +1,1505 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WookhyunLaceyKwon:권욱현</title>
+<meta name="description" content="Wookhyun Lacey Kwon, composer. Works, bio and CV.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,300;1,400&display=swap">
+<!-- GoatCounter: page views and the cv-download click event. Cookieless,
+     and only on the real site (the artifact preview blocks outside scripts). -->
+<script data-goatcounter="https://laceykwon.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+<style>
+  body { margin: 0; background: #ffffff; }
+/* -- graycode-style two-pane index layout: fixed left index, wide gutter,
+   right content pane that swaps panels via CSS :target (no JS needed for
+   navigation; the clock is the one deliberate bit of decorative JS). -- */
+
+.gc-layout {
+  --gc-bg: #ffffff;
+  --gc-fg: #171512;
+  --gc-muted: #8a8377;
+  --gc-line: #dcd6c9;
+  --gc-sans: 'Lato', -apple-system, 'Helvetica Neue', Arial, sans-serif;
+
+  position: relative;
+  min-height: 100vh;
+  background: var(--gc-bg);
+  color: var(--gc-fg);
+  font-family: var(--gc-sans);
+  font-weight: 400;
+  font-size: 13.5px;
+  line-height: 1.6;
+  letter-spacing: 0;
+}
+
+.gc-layout *,
+.gc-layout *::before,
+.gc-layout *::after { box-sizing: border-box; }
+
+.gc-layout p { margin: 0; }
+
+.gc-layout a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
+}
+
+.gc-layout a:hover { color: var(--gc-muted); }
+
+/* -- sidebar: pinned far left, generous top padding, quiet vertical rhythm -- */
+.gc-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 250px;
+  padding: 56px 24px 32px 40px;
+  overflow-y: auto;
+}
+
+.gc-nav-group + .gc-nav-group { margin-top: 1.7rem; }
+
+.gc-sidebar h2 {
+  margin: 0 0 0.6rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+
+.gc-sidebar h2 a { text-decoration: none; }
+.gc-sidebar h2 a:hover { text-decoration: underline; color: var(--gc-fg); }
+
+.gc-index-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.gc-index-list li + li { margin-top: 0.1rem; }
+
+.gc-index-list a {
+  display: block;
+  padding: 0.12rem 0;
+  text-decoration: none;
+  color: var(--gc-fg);
+}
+
+.gc-index-list a:hover { text-decoration: underline; }
+
+.gc-nav-sub {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--gc-muted);
+}
+
+.gc-nav-sub a { color: var(--gc-muted); }
+
+/* -- content pane: wide gutter from the sidebar, subtle gradient wash -- */
+.gc-content {
+  position: relative;
+  margin-left: 250px;
+  min-height: 100vh;
+  background: linear-gradient(120deg, #ffffff 0%, #ffffff 46%, #f4f2ec 100%);
+}
+
+.gc-panel {
+  display: none;
+}
+
+.gc-panel:target,
+.gc-panel-intro {
+  display: block;
+}
+
+.gc-panel:target { position: relative; z-index: 2; }
+
+/* Narrow screens keep the original one-pane behaviour: opening a work
+   replaces the index, and "Back to Index" returns to it. */
+@media (max-width: 1199px) {
+  .gc-panel:target ~ .gc-panel-intro { display: none; }
+}
+
+/* Wide screens use the empty space instead: the index stays where it is
+   and the work opens to the right of it, so moving from one piece to the
+   next never goes back through the index. The open work sits centred in
+   whatever space is left over, with no panel, rule or fill behind it. */
+/* On wide screens the right-hand column is never empty: with nothing open,
+   the bio sits there, so the page introduces its author instead of landing
+   on a bare list. ":has" asks whether any work, bio or CV panel is open;
+   the index itself (#intro, the panel the Close link returns to) does not
+   count, so closing a work brings the bio back rather than leaving a gap.
+   Narrow screens keep the index as the landing page, since there the open
+   panel replaces the list instead of sitting beside it. */
+@media (min-width: 1200px) {
+  .gc-panel:not(.gc-panel-intro):target,
+  .gc-content:not(:has(.gc-panel:not(.gc-panel-intro):target)) #bio {
+    position: fixed;
+    top: 0;
+    left: 850px; /* clears the sidebar and the narrowed index below */
+    right: 0;
+    height: 100vh;
+    overflow-y: auto;
+    background: none;
+    z-index: 3;
+  }
+
+  /* the default-open bio needs display too: .gc-panel is display:none and
+     only :target turns it back on */
+  .gc-content:not(:has(.gc-panel:not(.gc-panel-intro):target)) #bio {
+    display: block;
+  }
+
+  .gc-panel:not(.gc-panel-intro):target .gc-panel-inner,
+  .gc-content:not(:has(.gc-panel:not(.gc-panel-intro):target)) #bio .gc-panel-inner {
+    /* left-aligned rather than centred in the leftover space, so the work
+       stays close to the list and doesn't drift right on a wider screen */
+    width: min(460px, 100%);
+    max-width: none;
+    margin: 0;
+    padding: 56px 24px 64px 24px;
+  }
+
+  /* the list gives up the width the open work needs */
+  .gc-panel:not(.gc-panel-intro):target ~ .gc-panel-intro .gc-panel-inner,
+  .gc-content:not(:has(.gc-panel:not(.gc-panel-intro):target)) .gc-panel-intro .gc-panel-inner {
+    max-width: 560px;
+  }
+
+  .gc-panel:not(.gc-panel-intro):target .gc-back-link { margin-top: 3.5rem; }
+}
+
+.gc-panel-inner {
+  max-width: 920px;
+  padding: 56px 48px 80px 56px;
+}
+
+/* -- intro / default panel: categorized CV-style listing -- */
+.gc-cv-group + .gc-cv-group { margin-top: 1.6rem; }
+.gc-cv-group-toggle + .gc-cv-group-toggle { margin-top: 0.35rem; }
+
+.gc-cv-group-title {
+  margin: 0 0 0.55rem;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+/* by-category groups (Solo, Ensemble, ...) collapse behind a toggle,
+   closed by default; "Selected Works" stays a plain always-open div */
+.gc-cv-group-toggle summary.gc-cv-group-title {
+  cursor: pointer;
+  list-style: none;
+}
+
+.gc-cv-group-toggle summary.gc-cv-group-title::-webkit-details-marker {
+  display: none;
+}
+
+.gc-cv-group-toggle summary.gc-cv-group-title::before {
+  content: "●";
+  display: inline-block;
+  margin-right: 0.6em;
+  font-size: 0.6em;
+  vertical-align: middle;
+  color: var(--gc-muted);
+  font-weight: 400;
+}
+
+.gc-cv-group-toggle summary.gc-cv-group-title:hover {
+  color: var(--gc-muted);
+}
+
+.gc-cv-group-toggle .gc-cv-row:first-of-type {
+  margin-top: 0.3rem;
+}
+
+/* an opened group needs real air under its last row, so the next
+   category title doesn't sit right on top of the list */
+.gc-cv-group-toggle[open] {
+  margin-bottom: 1.3rem;
+}
+
+.gc-cv-group-toggle[open] .gc-cv-row:last-of-type {
+  padding-bottom: 0.1rem;
+}
+
+.gc-cv-row {
+  display: flex;
+  gap: 1.1em;
+  align-items: baseline;
+  padding: 0.14rem 0;
+}
+
+.gc-cv-row + .gc-cv-row { margin-top: 0.05rem; }
+
+.gc-cv-year {
+  flex: none;
+  width: 2.6em;
+  color: var(--gc-muted);
+}
+
+.gc-cv-title a { text-decoration: underline; font-weight: 700; }
+.gc-sep { color: var(--gc-muted); padding: 0 0.05em; }
+
+/* -- work detail panel -- */
+.gc-work-title {
+  margin: 0 0 0.9rem;
+  font-family: var(--gc-sans);
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.gc-meta-block {
+  margin-bottom: 1.4rem;
+  color: var(--gc-muted);
+  font-size: 0.82rem;
+}
+
+.gc-meta-block p + p { margin-top: 0.05rem; }
+
+/* same size/weight as the year line right below it, but black — reads as
+   a caption for the piece, not muted metadata. English line then Korean
+   line, stacked; a bit more air between the big h2 title above and this
+   pair than between the pair's own two lines. */
+.gc-title-bilingual {
+  color: var(--gc-fg);
+  font-weight: 400;
+}
+
+/* padding, not margin, so this space is guaranteed and doesn't collapse
+   away against the h2's own bottom margin */
+.gc-meta-block-bilingual { padding-top: 0.5rem; }
+
+.gc-block { margin-top: 1.1rem; }
+
+/* selector needs to out-specificity ".gc-layout p { margin: 0; }" above,
+   otherwise the reset silently wins and this margin never renders */
+.gc-panel-inner .gc-back-link {
+  margin-top: 10rem;
+  font-size: 0.82rem;
+}
+
+.gc-back-link a { color: var(--gc-muted); }
+
+/* one link closes the side column, the other returns to the index; which
+   one is shown depends on which layout is in effect. This pair has to sit
+   after the layout media query above, or the base rule would win on width
+   alone and both layouts would show "Back to Index". */
+.gc-back-wide { display: none; }
+.gc-back-narrow { display: inline; }
+
+@media (min-width: 1200px) {
+  .gc-back-wide { display: inline; }
+  .gc-back-narrow { display: none; }
+}
+
+.gc-block-label {
+  margin-bottom: 0.2rem;
+  color: var(--gc-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: 0.68rem;
+}
+
+.gc-block-body p + p { margin-top: 0.15rem; }
+
+/* the Korean name sits beside the English one, a touch smaller and
+   unbolded so the two read as one name rather than two headings */
+.gc-name-ko {
+  margin-left: 0.5em;
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+/* the name is set a step below a work title and a step below the other
+   sidebar headings, so it reads as a person rather than a section */
+.gc-name-title { font-size: 1.22rem; }
+.gc-sidebar h2.gc-nav-name { font-size: 0.86rem; }
+
+/* signature line at the foot of the sidebar: the name as a lowercase string,
+   small and muted so it reads as a mark rather than a second heading */
+/* selector has to beat ".gc-layout p { margin: 0 }", which is more specific
+   than a bare class and would otherwise silently eat this margin */
+.gc-sidebar .gc-colophon {
+  margin-top: 2.6rem;
+  font-size: 0.66rem;
+  color: var(--gc-muted);
+  letter-spacing: 0.01em;
+}
+
+/* the download sits a little under the sentence that explains it */
+.gc-cv-download { margin-top: 1.6rem; font-size: 0.9rem; }
+
+/* -- statement panel reuses the same rhythm, slightly wider measure -- */
+.gc-statement-body { max-width: 34rem; font-size: 0.9rem; line-height: 1.65; }
+.gc-statement-body > p { margin-bottom: 1.2rem; }
+
+/* the fuller conceptual statement lives behind a deliberately understated
+   toggle beneath the bio — small and gray on purpose, a shy little "well,
+   since you asked" rather than a headline claim about oneself */
+.gc-statement-toggle { margin-top: 2.4rem; }
+
+.gc-statement-toggle summary {
+  position: relative;
+  cursor: pointer;
+  list-style: none;
+  display: inline-block;
+  font-size: 0.66rem;
+  /* glow: black text + soft dark halo, kept faint on the white page.
+     Change --gc-neon to retune the color. */
+  --gc-neon: #111111;
+  color: var(--gc-neon);
+  text-shadow:
+    0 0 1px rgba(0, 0, 0, 0.55),
+    0 0 5px rgba(0, 0, 0, 0.35),
+    0 0 11px rgba(0, 0, 0, 0.22);
+  text-transform: lowercase;
+  letter-spacing: 0.01em;
+  transition: text-shadow 0.25s ease;
+}
+
+.gc-statement-toggle summary::-webkit-details-marker { display: none; }
+
+.gc-statement-toggle summary:hover {
+  text-shadow:
+    0 0 1px rgba(0, 0, 0, 0.7),
+    0 0 6px rgba(0, 0, 0, 0.5),
+    0 0 14px rgba(0, 0, 0, 0.35);
+}
+
+.gc-statement-toggle-body {
+  margin-top: 0.9rem;
+  max-width: 34rem;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.gc-statement-toggle-body > p { margin-bottom: 1.2rem; }
+
+@media (max-width: 860px) {
+  .gc-sidebar {
+    position: static;
+    width: auto;
+    padding: 32px 24px 16px;
+    border-bottom: 1px solid var(--gc-line);
+  }
+  .gc-content { margin-left: 0; }
+  .gc-panel-inner { padding: 32px 24px 56px; }
+}
+
+</style>
+</head>
+<body>
+<div class="gc-layout">
+    <aside class="gc-sidebar">
+      <div class="gc-nav-group">
+        <h2><a href="#intro">Index</a></h2>
+        <ol class="gc-index-list">
+        <li><a href="#work-cue-2026">Cue</a></li>
+        <li><a href="#work-be-piano-2026">Be Piano</a></li>
+        <li><a href="#work-unfamiliaritic-2025">Unfamiliaritic familiar unfamiliarity</a></li>
+        <li><a href="#work-greetings-iii-2025">Greetings III</a></li>
+        <li><a href="#work-violin-2025">Violin</a></li>
+        <li><a href="#work-yecheon-2025">Yecheon</a></li>
+        <li><a href="#work-idiomatic-redemption-2025">Idiomatic Redemption (failed)</a></li>
+        <li><a href="#work-overlapped-tada-data-2024">Overlapped Ta-da Data</a></li>
+        <li><a href="#work-words-whiskey-sax-2024">If Our Words Were Whiskey II</a></li>
+        <li><a href="#work-words-whiskey-quartet-2023">If Our Words Were Whiskey I</a></li>
+        <li><a href="#work-plusminus1-2022">±1</a></li>
+        <li><a href="#work-greetings-ii-2022">Greetings II</a></li>
+        <li><a href="#work-fancy-doubt-2022">Fancy Doubt</a></li>
+        <li><a href="#work-greetings-i-2022">Greetings I</a></li>
+        <li><a href="#work-happening-2021">Happening</a></li>
+        <li><a href="#work-live-and-let-live-2021">Live and let live</a></li>
+        <li><a href="#work-let-out-your-breath-2020">Let out your breath</a></li>
+        <li><a href="#work-bias-2019">Bias</a></li>
+        <li><a href="#work-rough-trio-2019">Rough Trio</a></li>
+        <li><a href="#work-two-2019">Two</a></li>
+        <li><a href="#work-friction-2019">Friction</a></li>
+        <li><a href="#work-wind-orchestra-arrangement-2019">Arrangement for Wind Orchestra</a></li>
+        </ol>
+      </div>
+
+      <div class="gc-nav-group">
+        <h2 class="gc-nav-name"><a href="#bio">Wookhyun Kwon<span class="gc-name-ko">권욱현</span></a></h2>
+      </div>
+
+      <div class="gc-nav-group">
+        <h2 class="gc-nav-name"><a href="#cv">CV</a></h2>
+      </div>
+
+      <p class="gc-colophon">wookhyun lacey kwon composer</p>
+    </aside>
+    <main class="gc-content">
+      <section id="work-cue-2026" class="gc-panel">
+        <div class="gc-panel-inner">
+          <h2 class="gc-work-title">Cue</h2>
+
+          <div class="gc-meta-block gc-meta-block-bilingual">
+            <p class="gc-title-bilingual">Cue</p>
+            <p class="gc-title-bilingual">신호</p>
+            <p>2026</p>
+            <p>flute, bass clarinet, horn, trumpet, trombone, percussion, piano, violin, viola, cello, and conductor</p>
+          </div>
+
+            <div class="gc-block">
+              <p class="gc-block-label">Performance</p>
+              <div class="gc-block-body">
+                <p>October 23, 2026 · Galvin Hall, Evanston (forthcoming)</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Context</p>
+              <div class="gc-block-body">
+                <p>To be premiered by the Contemporary Music Ensemble (CME)</p>
+              </div>
+            </div>
+
+          <p class="gc-back-link"><a class="gc-back-wide" href="#intro">Close</a><a class="gc-back-narrow" href="#intro">Back to Index</a></p>
+        </div>
+      </section>
+
+      <section id="work-be-piano-2026" class="gc-panel">
+        <div class="gc-panel-inner">
+          <h2 class="gc-work-title">Be Piano</h2>
+
+          <div class="gc-meta-block gc-meta-block-bilingual">
+            <p class="gc-title-bilingual">Be Piano</p>
+            <p class="gc-title-bilingual">피아노 되세요</p>
+            <p>2026</p>
+            <p>violin and piano</p>
+          </div>
+
+            <div class="gc-block">
+              <p class="gc-block-label">Performance</p>
+              <div class="gc-block-body">
+                <p>October 16, 2026 · DiMenna Center, New York (forthcoming)</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Context</p>
+              <div class="gc-block-body">
+                <p>To be premiered by Duo Tesserae</p>
+              </div>
+            </div>
+
+          <p class="gc-back-link"><a class="gc-back-wide" href="#intro">Close</a><a class="gc-back-narrow" href="#intro">Back to Index</a></p>
+        </div>
+      </section>
+
+      <section id="work-unfamiliaritic-2025" class="gc-panel">
+        <div class="gc-panel-inner">
+          <h2 class="gc-work-title">Unfamiliaritic familiar unfamiliarity</h2>
+
+          <div class="gc-meta-block gc-meta-block-bilingual">
+            <p class="gc-title-bilingual">Unfamiliaritic familiar unfamiliarity</p>
+            <p class="gc-title-bilingual">낯섦에 대한 익숙함이 낯설게 느껴질 때</p>
+            <p>2025</p>
+            <p>solo violin · 6′39″</p>
+          </div>
+
+            <div class="gc-block">
+              <p class="gc-block-label">Performers</p>
+              <div class="gc-block-body">
+                <p>Josh Modney, violin</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Performance</p>
+              <div class="gc-block-body">
+                <p>April 10, 2025 · Regenstein MCR, Evanston</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Documentation</p>
+              <div class="gc-block-body">
+                <p><a href="https://www.music.northwestern.edu/events/modney" target="_blank" rel="noreferrer">Event information <span aria-hidden="true">↗</span></a></p>
+                <p><a href="https://www.youtube.com/watch?v=M3Ou20nO_N4" target="_blank" rel="noreferrer">Full performance <span aria-hidden="true">↗</span></a></p>
+              </div>
+            </div>
+
+          <p class="gc-back-link"><a class="gc-back-wide" href="#intro">Close</a><a class="gc-back-narrow" href="#intro">Back to Index</a></p>
+        </div>
+      </section>
+
+      <section id="work-greetings-iii-2025" class="gc-panel">
+        <div class="gc-panel-inner">
+          <h2 class="gc-work-title">Greetings III</h2>
+
+          <div class="gc-meta-block gc-meta-block-bilingual">
+            <p class="gc-title-bilingual">Greetings III</p>
+            <p class="gc-title-bilingual">안녕하십니까 III</p>
+            <p>2025</p>
+            <p>solo B♭ clarinet · 5′20″</p>
+          </div>
+
+            <div class="gc-block">
+              <p class="gc-block-label">Performers</p>
+              <div class="gc-block-body">
+                <p>Rowan Jones, clarinet</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Performance</p>
+              <div class="gc-block-body">
+                <p>August 1, 2025 · Open Space, Darmstadt</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Context</p>
+              <div class="gc-block-body">
+                <p>Selected Participant, Clarinet Workshop, Internationales Musikinstitut Darmstadt (IMD)</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Documentation</p>
+              <div class="gc-block-body">
+                <p><a href="https://internationales-musikinstitut.de/en/ferienkurse/kurse/composing-for-clarinet/" target="_blank" rel="noreferrer">Project information <span aria-hidden="true">↗</span></a></p>
+                <p><a href="https://youtu.be/gBkC6D-USfM?si=11kJHWct4FsxOnTP" target="_blank" rel="noreferrer">Full performance <span aria-hidden="true">↗</span></a></p>
+              </div>
+            </div>
+
+          <p class="gc-back-link"><a class="gc-back-wide" href="#intro">Close</a><a class="gc-back-narrow" href="#intro">Back to Index</a></p>
+        </div>
+      </section>
+
+      <section id="work-violin-2025" class="gc-panel">
+        <div class="gc-panel-inner">
+          <h2 class="gc-work-title">Violin</h2>
+
+          <div class="gc-meta-block gc-meta-block-bilingual">
+            <p class="gc-title-bilingual">Violin</p>
+            <p class="gc-title-bilingual">바욜린</p>
+            <p>2025</p>
+            <p>fixed media · 4′58″</p>
+          </div>
+
+            <div class="gc-block">
+              <p class="gc-block-label">Context</p>
+              <div class="gc-block-body">
+                <p>Violin recorded by Wookhyun Lacey Kwon, March 2025 · Chicago</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Documentation</p>
+              <div class="gc-block-body">
+                <p><a href="https://youtu.be/bEkOgh2Ughw?si=ZqzMOKy1nOWtf8G3" target="_blank" rel="noreferrer">Audio <span aria-hidden="true">↗</span></a></p>
+              </div>
+            </div>
+
+          <p class="gc-back-link"><a class="gc-back-wide" href="#intro">Close</a><a class="gc-back-narrow" href="#intro">Back to Index</a></p>
+        </div>
+      </section>
+
+      <section id="work-yecheon-2025" class="gc-panel">
+        <div class="gc-panel-inner">
+          <h2 class="gc-work-title">Yecheon</h2>
+
+          <div class="gc-meta-block gc-meta-block-bilingual">
+            <p class="gc-title-bilingual">Yecheon</p>
+            <p class="gc-title-bilingual">할매</p>
+            <p>2025</p>
+            <p>flute, viola d'amore, organ, percussion, and choreography · 8′30″</p>
+          </div>
+
+            <div class="gc-block">
+              <p class="gc-block-label">Performers</p>
+              <div class="gc-block-body">
+                <p>Evelin Degen, flute</p>
+                <p>Carter Williams, viola d'amore</p>
+                <p>Matthias Geuting, organ</p>
+                <p>Peter Eisold, percussion</p>
+                <p>Jennie Boultbee, dancer</p>
+                <p>Mateusz Bogdanowicz, dancer</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Performance</p>
+              <div class="gc-block-body">
+                <p>August 15, 2025 · Lutheran Church, San Antonio</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Context</p>
+              <div class="gc-block-body">
+                <p>Selected Composer, 2025 Collaborative Composition Initiative (CCI) Workshop</p>
+                <p>Written for PART Ensemble</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Documentation</p>
+              <div class="gc-block-body">
+                <p><a href="https://www.unheard-ofensemble.com/cci-2025-1" target="_blank" rel="noreferrer">Project information <span aria-hidden="true">↗</span></a></p>
+              </div>
+            </div>
+
+          <p class="gc-back-link"><a class="gc-back-wide" href="#intro">Close</a><a class="gc-back-narrow" href="#intro">Back to Index</a></p>
+        </div>
+      </section>
+
+      <section id="work-idiomatic-redemption-2025" class="gc-panel">
+        <div class="gc-panel-inner">
+          <h2 class="gc-work-title">Idiomatic Redemption (failed)</h2>
+
+          <div class="gc-meta-block gc-meta-block-bilingual">
+            <p class="gc-title-bilingual">Idiomatic Redemption (failed)</p>
+            <p class="gc-title-bilingual">뻔한 구원 (실패)</p>
+            <p>2025</p>
+            <p>bass clarinet, violin, cello, and piano · 5′40″</p>
+          </div>
+
+            <div class="gc-block">
+              <p class="gc-block-label">Performers</p>
+              <div class="gc-block-body">
+                <p>Ford Fourqurean, bass clarinet</p>
+                <p>Matheus Souza, violin</p>
+                <p>Iva Casian-Lakoš, cello</p>
+                <p>Daniel Anastasio, piano</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Performance</p>
+              <div class="gc-block-body">
+                <p>August 14, 2025 · McNay Art Museum, San Antonio</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Context</p>
+              <div class="gc-block-body">
+                <p>Written for George Schroeder's sculpture <em>Redemption IV</em> as a site-specific sound-walk projection</p>
+                <p>Premiered by Unheard-of Ensemble</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Documentation</p>
+              <div class="gc-block-body">
+                <p><a href="https://www.mcnayart.org/event/unheard-of-aug25/" target="_blank" rel="noreferrer">Event information <span aria-hidden="true">↗</span></a></p>
+              </div>
+            </div>
+
+          <p class="gc-back-link"><a class="gc-back-wide" href="#intro">Close</a><a class="gc-back-narrow" href="#intro">Back to Index</a></p>
+        </div>
+      </section>
+
+      <section id="work-overlapped-tada-data-2024" class="gc-panel">
+        <div class="gc-panel-inner">
+          <h2 class="gc-work-title">Overlapped Ta-da Data</h2>
+
+          <div class="gc-meta-block gc-meta-block-bilingual">
+            <p class="gc-title-bilingual">Overlapped Ta-da Data</p>
+            <p class="gc-title-bilingual">차곡차곡 짜잔! 데이터</p>
+            <p>2024</p>
+            <p>accordion duo · 9′35″</p>
+          </div>
+
+            <div class="gc-block">
+              <p class="gc-block-label">Performers</p>
+              <div class="gc-block-body">
+                <p>Marius Staible, accordion</p>
+                <p>Daniel Roth, accordion</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Performance</p>
+              <div class="gc-block-body">
+                <p>April 12, 2024 · Tenri Cultural Institute, New York</p>
+                <p>April 16, 2024 · &lt;Unerhörte Musik&gt;, BKA-Theater, Berlin</p>
+                <p>July 4, 2026 · &lt;ACHTELTON&gt;, St. Johannis-Kirche, Hitzacker</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Context</p>
+              <div class="gc-block-body">
+                <p>Commissioned and premiered by Con:Trust</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Documentation</p>
+              <div class="gc-block-body">
+                <p><a href="https://www.field-notes.berlin/veranstaltung/akkoreonduo-contrust-encounters" target="_blank" rel="noreferrer">Event information (Berlin) <span aria-hidden="true">↗</span></a></p>
+                <p><a href="https://achtelton.de/konzert/10-instrumentenportrait-accordeon/" target="_blank" rel="noreferrer">Event information (Hitzacker) <span aria-hidden="true">↗</span></a></p>
+                <p><a href="https://achtelton.de/composer/wookhyun-lacey-kwon/" target="_blank" rel="noreferrer">Program note <span aria-hidden="true">↗</span></a></p>
+                <p><a href="https://youtu.be/AOs8VY79qtw?si=T3ERVvnAQD7ftZWF" target="_blank" rel="noreferrer">Full performance <span aria-hidden="true">↗</span></a></p>
+              </div>
+            </div>
+
+          <p class="gc-back-link"><a class="gc-back-wide" href="#intro">Close</a><a class="gc-back-narrow" href="#intro">Back to Index</a></p>
+        </div>
+      </section>
+
+      <section id="work-words-whiskey-sax-2024" class="gc-panel">
+        <div class="gc-panel-inner">
+          <h2 class="gc-work-title">If Our Words Were Whiskey II</h2>
+
+          <div class="gc-meta-block gc-meta-block-bilingual">
+            <p class="gc-title-bilingual">If Our Words Were Whiskey II</p>
+            <p class="gc-title-bilingual">만약 우리의 언어가 위스키라면 II</p>
+            <p>2024</p>
+            <p>saxophone quartet · 9′</p>
+          </div>
+
+            <div class="gc-block">
+              <p class="gc-block-label">Performers</p>
+              <div class="gc-block-body">
+                <p>Isaac Boone, soprano saxophone</p>
+                <p>Ila Gupta, alto saxophone</p>
+                <p>Sam Alvarez, tenor saxophone</p>
+                <p>Kurt Cox, baritone saxophone</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Recording</p>
+              <div class="gc-block-body">
+                <p>April 18, 2024 · Northwestern University, Evanston</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Context</p>
+              <div class="gc-block-body">
+                <p>Recording session with Masso Saxophone Quartet</p>
+              </div>
+            </div>
+
+          <p class="gc-back-link"><a class="gc-back-wide" href="#intro">Close</a><a class="gc-back-narrow" href="#intro">Back to Index</a></p>
+        </div>
+      </section>
+
+      <section id="work-words-whiskey-quartet-2023" class="gc-panel">
+        <div class="gc-panel-inner">
+          <h2 class="gc-work-title">If Our Words Were Whiskey I</h2>
+
+          <div class="gc-meta-block gc-meta-block-bilingual">
+            <p class="gc-title-bilingual">If Our Words Were Whiskey I</p>
+            <p class="gc-title-bilingual">만약 우리의 언어가 위스키라면 I</p>
+            <p>2023</p>
+            <p>string quartet · 8′31″</p>
+          </div>
+
+            <div class="gc-block">
+              <p class="gc-block-label">Performers</p>
+              <div class="gc-block-body">
+                <p>Taihi Chen, violin</p>
+                <p>Yeji Pyun, violin</p>
+                <p>Jeongjae Lee, viola</p>
+                <p>Alan Hlozek, cello</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Performance</p>
+              <div class="gc-block-body">
+                <p>May 1, 2023 · Ades Performance Space, New York</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Documentation</p>
+              <div class="gc-block-body">
+                <p><a href="https://youtu.be/2MKTxL5nAu0?si=0ozw5MfThRclLq5a" target="_blank" rel="noreferrer">Full performance <span aria-hidden="true">↗</span></a></p>
+              </div>
+            </div>
+
+          <p class="gc-back-link"><a class="gc-back-wide" href="#intro">Close</a><a class="gc-back-narrow" href="#intro">Back to Index</a></p>
+        </div>
+      </section>
+
+      <section id="work-plusminus1-2022" class="gc-panel">
+        <div class="gc-panel-inner">
+          <h2 class="gc-work-title">±1</h2>
+
+          <div class="gc-meta-block gc-meta-block-bilingual">
+            <p class="gc-title-bilingual">±1</p>
+            <p>2022</p>
+            <p>flute, alto flute, bass clarinet, percussion, piano, violin, two cellos, and conductor · 6′04″</p>
+          </div>
+
+            <div class="gc-block">
+              <p class="gc-block-label">Performers</p>
+              <div class="gc-block-body">
+                <p>Stephanie Dressler, flute</p>
+                <p>Savannah Mae Gentry, alto flute</p>
+                <p>Tommy Shermulis, bass clarinet</p>
+                <p>Hwanee Pak, percussion</p>
+                <p>Nacho Ojeda Romero, piano</p>
+                <p>Yeji Pyun, violin</p>
+                <p>Clara Cho, cello</p>
+                <p>Alan Hlozek, cello</p>
+                <p>Glenn Alexander II, conductor and indicator</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Performance</p>
+              <div class="gc-block-body">
+                <p>October 7, 2022 · Ades Performance Space, New York</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Documentation</p>
+              <div class="gc-block-body">
+                <p><a href="https://youtu.be/K0GlwvUblB4?si=5q52adrHeL3wATTb" target="_blank" rel="noreferrer">Full performance <span aria-hidden="true">↗</span></a></p>
+              </div>
+            </div>
+
+          <p class="gc-back-link"><a class="gc-back-wide" href="#intro">Close</a><a class="gc-back-narrow" href="#intro">Back to Index</a></p>
+        </div>
+      </section>
+
+      <section id="work-greetings-ii-2022" class="gc-panel">
+        <div class="gc-panel-inner">
+          <h2 class="gc-work-title">Greetings II</h2>
+
+          <div class="gc-meta-block gc-meta-block-bilingual">
+            <p class="gc-title-bilingual">Greetings II</p>
+            <p class="gc-title-bilingual">안녕하십니까 II</p>
+            <p>2022</p>
+            <p>bass clarinet and electric guitar · 6′54″</p>
+          </div>
+
+            <div class="gc-block">
+              <p class="gc-block-label">Performers</p>
+              <div class="gc-block-body">
+                <p>Emmalie Tello, bass clarinet</p>
+                <p>Hunter Somogie, electric guitar</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Performance</p>
+              <div class="gc-block-body">
+                <p>April 26, 2022 · Greenfield Hall, New York</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Documentation</p>
+              <div class="gc-block-body">
+                <p><a href="https://youtu.be/Cx1Uwx66gus?si=cIyhgu3mr1lkkE3D" target="_blank" rel="noreferrer">Full performance <span aria-hidden="true">↗</span></a></p>
+              </div>
+            </div>
+
+          <p class="gc-back-link"><a class="gc-back-wide" href="#intro">Close</a><a class="gc-back-narrow" href="#intro">Back to Index</a></p>
+        </div>
+      </section>
+
+      <section id="work-fancy-doubt-2022" class="gc-panel">
+        <div class="gc-panel-inner">
+          <h2 class="gc-work-title">Fancy Doubt</h2>
+
+          <div class="gc-meta-block gc-meta-block-bilingual">
+            <p class="gc-title-bilingual">Fancy Doubt</p>
+            <p>2022</p>
+            <p>orchestra · 8′40″</p>
+          </div>
+
+            <div class="gc-block">
+              <p class="gc-block-label">Performers</p>
+              <div class="gc-block-body">
+                <p>Manhattan School of Music Orchestras</p>
+                <p>Glenn Alexander II, conductor</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Performance</p>
+              <div class="gc-block-body">
+                <p>April 8, 2022 · Neidorff-Karpati Hall, New York</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Context</p>
+              <div class="gc-block-body">
+                <p>Written as the thesis for the Master of Music degree at Manhattan School of Music</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Documentation</p>
+              <div class="gc-block-body">
+                <p><a href="https://www.msmnyc.edu/wp-content/uploads/2022/04/2022.4.8-Student-Composers-Orch.pdf" target="_blank" rel="noreferrer">Program <span aria-hidden="true">↗</span></a></p>
+                <p><a href="https://youtu.be/bPHbxoqm-BI?si=bB1yZKl9eBYl7uiX" target="_blank" rel="noreferrer">Full performance <span aria-hidden="true">↗</span></a></p>
+              </div>
+            </div>
+
+          <p class="gc-back-link"><a class="gc-back-wide" href="#intro">Close</a><a class="gc-back-narrow" href="#intro">Back to Index</a></p>
+        </div>
+      </section>
+
+      <section id="work-greetings-i-2022" class="gc-panel">
+        <div class="gc-panel-inner">
+          <h2 class="gc-work-title">Greetings I</h2>
+
+          <div class="gc-meta-block gc-meta-block-bilingual">
+            <p class="gc-title-bilingual">Greetings I</p>
+            <p class="gc-title-bilingual">안녕하십니까 I</p>
+            <p>2022</p>
+            <p>solo bass clarinet · 8′55″</p>
+          </div>
+
+            <div class="gc-block">
+              <p class="gc-block-label">Performers</p>
+              <div class="gc-block-body">
+                <p>Emmalie Tello, bass clarinet</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Performance</p>
+              <div class="gc-block-body">
+                <p>April 2, 2022 · Ades Performance Space, New York</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Documentation</p>
+              <div class="gc-block-body">
+                <p><a href="https://youtu.be/9e4DAppftfU?si=LnrI6yRALk0uKng1" target="_blank" rel="noreferrer">Full performance <span aria-hidden="true">↗</span></a></p>
+              </div>
+            </div>
+
+          <p class="gc-back-link"><a class="gc-back-wide" href="#intro">Close</a><a class="gc-back-narrow" href="#intro">Back to Index</a></p>
+        </div>
+      </section>
+
+      <section id="work-happening-2021" class="gc-panel">
+        <div class="gc-panel-inner">
+          <h2 class="gc-work-title">Happening</h2>
+
+          <div class="gc-meta-block gc-meta-block-bilingual">
+            <p class="gc-title-bilingual">Happening</p>
+            <p class="gc-title-bilingual">사건</p>
+            <p>2021</p>
+            <p>flute, clarinet, horn, piano, accordion, violin, viola, and cello · 7′37″</p>
+          </div>
+
+            <div class="gc-block">
+              <p class="gc-block-label">Performers</p>
+              <div class="gc-block-body">
+                <p>Stephanie Dressler, flute</p>
+                <p>Emmalie Tello, clarinet</p>
+                <p>Florian David Gamberger, horn</p>
+                <p>Nicole Brancato, piano</p>
+                <p>Marius Staible, accordion</p>
+                <p>Teagan Faran, violin</p>
+                <p>Timon Knötzele, viola</p>
+                <p>Clara Lindenbaum, cello</p>
+                <p>Roc Fargas i Castells, conductor</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Performance</p>
+              <div class="gc-block-body">
+                <p>November 13, 2021 · Hochschule für Musik Franz Liszt Weimar, Weimar</p>
+                <p>November 14, 2021 · Gesellschaftshaus, Magdeburg</p>
+                <p>April 14, 2022 · Ades Performance Space, New York</p>
+                <p>April 16, 2022 · Christ Church Riverdale, New York</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Context</p>
+              <div class="gc-block-body">
+                <p>Selected Composer, collaborative project with Hochschule für Musik Franz Liszt Weimar and Manhattan School of Music</p>
+                <p>Premiered by a joint ensemble of the two schools</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Documentation</p>
+              <div class="gc-block-body">
+                <p><a href="https://www.msmnyc.edu/news/seven-msm-contemporary-performance-and-composition-students-take-part-in-an-exchange-program-in-germany/" target="_blank" rel="noreferrer">Project information <span aria-hidden="true">↗</span></a></p>
+                <p><a href="https://www.hfm-weimar.de/hochschuljubilaeum/news/detailansicht/news/weimar-new-york-urauffuehrungen-beim-abschlusskonzert-des-austauschprojekts-mit-der-manhattan-school-of-music" target="_blank" rel="noreferrer">Event information <span aria-hidden="true">↗</span></a></p>
+                <p><a href="https://youtu.be/u27SKcIgsyM?si=uQoXH8BUFmhD73UC" target="_blank" rel="noreferrer">Full performance <span aria-hidden="true">↗</span></a></p>
+              </div>
+            </div>
+
+          <p class="gc-back-link"><a class="gc-back-wide" href="#intro">Close</a><a class="gc-back-narrow" href="#intro">Back to Index</a></p>
+        </div>
+      </section>
+
+      <section id="work-live-and-let-live-2021" class="gc-panel">
+        <div class="gc-panel-inner">
+          <h2 class="gc-work-title">Live and let live</h2>
+
+          <div class="gc-meta-block gc-meta-block-bilingual">
+            <p class="gc-title-bilingual">Live and let live</p>
+            <p class="gc-title-bilingual">남이사</p>
+            <p>2021</p>
+            <p>B♭ clarinet and piano · 10′23″</p>
+          </div>
+
+            <div class="gc-block">
+              <p class="gc-block-label">Performers</p>
+              <div class="gc-block-body">
+                <p>Minhyuk Won, clarinet</p>
+                <p>Dasom Ham, piano</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Performance</p>
+              <div class="gc-block-body">
+                <p>June 28, 2021 · Concert Hall, Kookmin University, Seoul</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Context</p>
+              <div class="gc-block-body">
+                <p>Premiered at &lt;Decomposition&gt;, a concert by the Kookmin University composers' collective</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Documentation</p>
+              <div class="gc-block-body">
+                <p><a href="https://youtu.be/UTHFVpWut00?si=pjv3BUXThqDBo-Bo" target="_blank" rel="noreferrer">Full performance <span aria-hidden="true">↗</span></a></p>
+              </div>
+            </div>
+
+          <p class="gc-back-link"><a class="gc-back-wide" href="#intro">Close</a><a class="gc-back-narrow" href="#intro">Back to Index</a></p>
+        </div>
+      </section>
+
+      <section id="work-let-out-your-breath-2020" class="gc-panel">
+        <div class="gc-panel-inner">
+          <h2 class="gc-work-title">Let out your breath</h2>
+
+          <div class="gc-meta-block gc-meta-block-bilingual">
+            <p class="gc-title-bilingual">Let out your breath</p>
+            <p class="gc-title-bilingual">내쉬세요</p>
+            <p>2020</p>
+            <p>wind quintet · 1′59″</p>
+          </div>
+
+            <div class="gc-block">
+              <p class="gc-block-label">Performers</p>
+              <div class="gc-block-body">
+                <p>Tara Helen O'Connor, flute</p>
+                <p>Randall Ellis, oboe</p>
+                <p>Alan R. Kay, clarinet</p>
+                <p>David Jolley, horn</p>
+                <p>Frank Morelli, bassoon</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Performance</p>
+              <div class="gc-block-body">
+                <p>May 4, 2021 · virtual concert</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Context</p>
+              <div class="gc-block-body">
+                <p>Written as a part of Windscape Ensemble's project <em>You Give Us 26 Minutes…</em></p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Documentation</p>
+              <div class="gc-block-body">
+                <p><a href="https://www.msmnyc.edu/wp-content/uploads/2021/05/2021.5.4-Windscape.pdf" target="_blank" rel="noreferrer">Program <span aria-hidden="true">↗</span></a></p>
+                <p><a href="https://youtu.be/4DMQdK5thlk?si=ysdgmqNQEUaCDmoe" target="_blank" rel="noreferrer">Full performance <span aria-hidden="true">↗</span></a></p>
+              </div>
+            </div>
+
+          <p class="gc-back-link"><a class="gc-back-wide" href="#intro">Close</a><a class="gc-back-narrow" href="#intro">Back to Index</a></p>
+        </div>
+      </section>
+
+      <section id="work-bias-2019" class="gc-panel">
+        <div class="gc-panel-inner">
+          <h2 class="gc-work-title">Bias</h2>
+
+          <div class="gc-meta-block gc-meta-block-bilingual">
+            <p class="gc-title-bilingual">Bias</p>
+            <p class="gc-title-bilingual">편견</p>
+            <p>2019</p>
+            <p>solo violin · 7′20″</p>
+          </div>
+
+            <div class="gc-block">
+              <p class="gc-block-label">Performers</p>
+              <div class="gc-block-body">
+                <p>Jihyun Park, violin</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Performance</p>
+              <div class="gc-block-body">
+                <p>November 29, 2019 · Alternative Space LOOP, Seoul</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Context</p>
+              <div class="gc-block-body">
+                <p>Selected Composer, Hwaum Project Academy, Hwaum Chamber Orchestra</p>
+                <p>&lt;Echo Chamber&gt;: Sound Effect Seoul 2019 (supported by Arts Council Korea)</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Documentation</p>
+              <div class="gc-block-body">
+                <p><a href="https://www.hwaum.org/bbs/board.php?bo_table=project&amp;wr_id=232&amp;sst=wr_2&amp;sod=asc&amp;sop=and&amp;page=5" target="_blank" rel="noreferrer">Project information <span aria-hidden="true">↗</span></a></p>
+                <p><a href="http://altspaceloop.com/exhibitions/echochamber-sfxseoul2019" target="_blank" rel="noreferrer">Event information <span aria-hidden="true">↗</span></a></p>
+                <p><a href="https://youtu.be/jtlvfzMcbFQ?si=spz9m1xNxytdp7Wd" target="_blank" rel="noreferrer">Full performance <span aria-hidden="true">↗</span></a></p>
+              </div>
+            </div>
+
+          <p class="gc-back-link"><a class="gc-back-wide" href="#intro">Close</a><a class="gc-back-narrow" href="#intro">Back to Index</a></p>
+        </div>
+      </section>
+
+      <section id="work-rough-trio-2019" class="gc-panel">
+        <div class="gc-panel-inner">
+          <h2 class="gc-work-title">Rough Trio</h2>
+
+          <div class="gc-meta-block gc-meta-block-bilingual">
+            <p class="gc-title-bilingual">Rough Trio</p>
+            <p>2019</p>
+            <p>violin, viola, and cello · 10′50″</p>
+          </div>
+
+            <div class="gc-block">
+              <p class="gc-block-label">Performers</p>
+              <div class="gc-block-body">
+                <p>Youkyung Kim, violin</p>
+                <p>Sangmin Lee, viola</p>
+                <p>Seokwoo Yoon, cello</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Performance</p>
+              <div class="gc-block-body">
+                <p>May 29, 2019 · Concert Hall, Kookmin University, Seoul</p>
+                <p>June 23, 2019 · Music Hall, University of Seoul</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Context</p>
+              <div class="gc-block-body">
+                <p>First Prize, 30th <em>Eumak Journal</em> Music Competition, Seoul</p>
+                <p>Premiered by Wiro Ensemble</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Documentation</p>
+              <div class="gc-block-body">
+                <p><a href="https://youtu.be/zTpZLRutYSc?si=E9mrFlA6NTC2E9RR" target="_blank" rel="noreferrer">Full performance <span aria-hidden="true">↗</span></a></p>
+              </div>
+            </div>
+
+          <p class="gc-back-link"><a class="gc-back-wide" href="#intro">Close</a><a class="gc-back-narrow" href="#intro">Back to Index</a></p>
+        </div>
+      </section>
+
+      <section id="work-two-2019" class="gc-panel">
+        <div class="gc-panel-inner">
+          <h2 class="gc-work-title">Two</h2>
+
+          <div class="gc-meta-block gc-meta-block-bilingual">
+            <p class="gc-title-bilingual">Two</p>
+            <p class="gc-title-bilingual">둘</p>
+            <p>2019</p>
+            <p>tenor, viola, and piano · 8′11″</p>
+          </div>
+
+            <div class="gc-block">
+              <p class="gc-block-label">Performers</p>
+              <div class="gc-block-body">
+                <p>Jinpark Choi, tenor</p>
+                <p>Sangmin Lee, viola</p>
+                <p>Eunji Lee, piano</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Performance</p>
+              <div class="gc-block-body">
+                <p>May 29, 2019 · Concert Hall, Kookmin University, Seoul</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Documentation</p>
+              <div class="gc-block-body">
+                <p><a href="https://youtu.be/_ObVdH7GewM?si=QEbiNqJwMw52Ir68" target="_blank" rel="noreferrer">Full performance <span aria-hidden="true">↗</span></a></p>
+              </div>
+            </div>
+
+          <p class="gc-back-link"><a class="gc-back-wide" href="#intro">Close</a><a class="gc-back-narrow" href="#intro">Back to Index</a></p>
+        </div>
+      </section>
+
+      <section id="work-friction-2019" class="gc-panel">
+        <div class="gc-panel-inner">
+          <h2 class="gc-work-title">Friction</h2>
+
+          <div class="gc-meta-block gc-meta-block-bilingual">
+            <p class="gc-title-bilingual">Friction</p>
+            <p class="gc-title-bilingual">마찰</p>
+            <p>2019</p>
+            <p>viola and inside piano · 10′14″</p>
+          </div>
+
+            <div class="gc-block">
+              <p class="gc-block-label">Performers</p>
+              <div class="gc-block-body">
+                <p>Sangmin Lee, viola</p>
+                <p>Eunji Lee, piano</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Performance</p>
+              <div class="gc-block-body">
+                <p>May 29, 2019 · Concert Hall, Kookmin University, Seoul</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Context</p>
+              <div class="gc-block-body">
+                <p>Premiered by Wiro Ensemble</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Documentation</p>
+              <div class="gc-block-body">
+                <p><a href="https://youtu.be/NHq-eUHt7UA?si=Lbw1LlQI4wVZQBnL" target="_blank" rel="noreferrer">Full performance <span aria-hidden="true">↗</span></a></p>
+              </div>
+            </div>
+
+          <p class="gc-back-link"><a class="gc-back-wide" href="#intro">Close</a><a class="gc-back-narrow" href="#intro">Back to Index</a></p>
+        </div>
+      </section>
+
+      <section id="work-wind-orchestra-arrangement-2019" class="gc-panel">
+        <div class="gc-panel-inner">
+          <h2 class="gc-work-title">Arrangement for Wind Orchestra</h2>
+
+          <div class="gc-meta-block gc-meta-block-bilingual">
+            <p class="gc-title-bilingual">Arrangement for Wind Orchestra</p>
+            <p>2019</p>
+            <p>symphonic wind orchestra</p>
+          </div>
+
+            <div class="gc-block">
+              <p class="gc-block-label">Performance</p>
+              <div class="gc-block-body">
+                <p>Concert Hall, Kookmin University, Seoul</p>
+              </div>
+            </div>
+            <div class="gc-block">
+              <p class="gc-block-label">Context</p>
+              <div class="gc-block-body">
+                <p>Performed at the 20th Kookmin University Symphonic Wind Orchestra Concert</p>
+              </div>
+            </div>
+
+          <p class="gc-back-link"><a class="gc-back-wide" href="#intro">Close</a><a class="gc-back-narrow" href="#intro">Back to Index</a></p>
+        </div>
+      </section>
+
+      <section id="bio" class="gc-panel">
+        <div class="gc-panel-inner">
+          <h2 class="gc-work-title gc-name-title">Wookhyun Kwon<span class="gc-name-ko">권욱현</span></h2>
+          <div class="gc-statement-body">
+            <p>I work across instrumental and electroacoustic composition. The work stays with what remains as an expectation between an instruction, the sensation of the body carrying it out, and the sound perceived in performance. Instruments, physical effort, and the performance space become a single material. The expectation takes form through them.</p>
+            <p>I was born in Uijeongbu, Korea, and work between Chicago and Seoul. The work has been presented in New York, Berlin, Darmstadt, Seoul, and elsewhere. I'm pursuing a PhD in Composition and Music Technology at Northwestern University, studying with Jay Alan Yim, Alex Mincek, and Stephan Moore, and hold degrees from Manhattan School of Music and Kookmin University.</p>
+          </div>
+
+          <details class="gc-statement-toggle">
+            <summary>statement...</summary>
+            <div class="gc-statement-toggle-body">
+              <p>A score establishes what is expected. It gives precise form to something that cannot be realized exactly. Performance brings that expectation into real time. A concert is controlled to realize the expectation, but never fully controllable. As the work unfolds, instruments, bodies, and relationships shape how its instructions are carried out. Effort, timing, response, and control shape what happens.</p>
+              <p>Expectation forms my work. It also shapes how the materials function. These expectations begin with familiar assumptions. A pattern will continue. An instruction can be carried out. The same signal will produce the same response. Some are set by musical convention: a performer responds to a cue, an instrument sounds as expected, and an ensemble stays together. The work uses these conventions as material, against what they are for. It keeps their forms but empties their functions.</p>
+              <p>My work isolates and magnifies different parts of this process. Each score draws one of these expectations into a specific task. In one, a physical movement is repeated in one direction. The restriction intensifies the expectation of its return or repetition. In another, an instrument follows the shape of a sound it cannot physically reproduce. That failure is built into the task. Elsewhere, a conductor's cue stays the same while the ensemble's response changes. A familiar convention remains in place after its function has changed: the gesture stays recognizable while control moves somewhere else.</p>
+              <p>In sound, an expectation takes form over time. The difference between expectation and execution becomes audible through physical effort in performance. Neither exists without the other, so both stay in the piece. The instruction, the physical action that carries it out, and the resulting sound remain connected, even as the relation among them changes. The work is built from these relations.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section id="cv" class="gc-panel">
+        <div class="gc-panel-inner">
+          <h2 class="gc-work-title gc-name-title">CV</h2>
+          <p class="gc-cv-download">
+            <!--
+              Click tracking: GoatCounter binds a click handler to any element
+              carrying data-goatcounter-click, so each download shows up in the
+              dashboard as the event "cv-download". The attribute does nothing
+              when the GoatCounter script isn't loaded (the artifact preview),
+              so it is safe in both builds. The download attribute names the
+              saved file.
+            -->
+            <a href="cv.pdf" download="Wookhyun-Kwon-CV.pdf" data-goatcounter-click="cv-download" data-goatcounter-title="CV download">download <strong>CV</strong> (PDF)</a>
+          </p>
+
+          <p class="gc-back-link"><a class="gc-back-wide" href="#intro">Close</a><a class="gc-back-narrow" href="#intro">Back to Index</a></p>
+        </div>
+      </section>
+
+      <section id="intro" class="gc-panel gc-panel-intro">
+        <div class="gc-panel-inner">
+        <div class="gc-cv-group">
+          <h3 class="gc-cv-group-title">Selected Works</h3>
+          <div class="gc-cv-row">
+            <span class="gc-cv-year">2025</span>
+            <span class="gc-cv-title"><a href="#work-unfamiliaritic-2025">Unfamiliaritic familiar unfamiliarity</a> <span class="gc-sep">|</span> solo violin</span>
+          </div>
+          <div class="gc-cv-row">
+            <span class="gc-cv-year">2022</span>
+            <span class="gc-cv-title"><a href="#work-plusminus1-2022">±1</a> <span class="gc-sep">|</span> flute, alto flute, bass clarinet, percussion, piano, violin, two cellos, and conductor</span>
+          </div>
+          <div class="gc-cv-row">
+            <span class="gc-cv-year">2021</span>
+            <span class="gc-cv-title"><a href="#work-happening-2021">Happening</a> <span class="gc-sep">|</span> flute, clarinet, horn, piano, accordion, violin, viola, and cello</span>
+          </div>
+          <div class="gc-cv-row">
+            <span class="gc-cv-year">2019</span>
+            <span class="gc-cv-title"><a href="#work-bias-2019">Bias</a> <span class="gc-sep">|</span> solo violin</span>
+          </div>
+        </div>
+
+        <details class="gc-cv-group gc-cv-group-toggle">
+          <summary class="gc-cv-group-title">Solo</summary>
+          <div class="gc-cv-row">
+            <span class="gc-cv-year">2025</span>
+            <span class="gc-cv-title"><a href="#work-unfamiliaritic-2025">Unfamiliaritic familiar unfamiliarity</a> <span class="gc-sep">|</span> solo violin</span>
+          </div>
+          <div class="gc-cv-row">
+            <span class="gc-cv-year">2025</span>
+            <span class="gc-cv-title"><a href="#work-greetings-iii-2025">Greetings III</a> <span class="gc-sep">|</span> solo B♭ clarinet</span>
+          </div>
+          <div class="gc-cv-row">
+            <span class="gc-cv-year">2022</span>
+            <span class="gc-cv-title"><a href="#work-greetings-i-2022">Greetings I</a> <span class="gc-sep">|</span> solo bass clarinet</span>
+          </div>
+          <div class="gc-cv-row">
+            <span class="gc-cv-year">2019</span>
+            <span class="gc-cv-title"><a href="#work-bias-2019">Bias</a> <span class="gc-sep">|</span> solo violin</span>
+          </div>
+        </details>
+
+        <details class="gc-cv-group gc-cv-group-toggle">
+          <summary class="gc-cv-group-title">Electronic Music</summary>
+          <div class="gc-cv-row">
+            <span class="gc-cv-year">2025</span>
+            <span class="gc-cv-title"><a href="#work-violin-2025">Violin</a> <span class="gc-sep">|</span> fixed media</span>
+          </div>
+        </details>
+
+        <details class="gc-cv-group gc-cv-group-toggle">
+          <summary class="gc-cv-group-title">Large Ensemble and Orchestra</summary>
+          <div class="gc-cv-row">
+            <span class="gc-cv-year">2026</span>
+            <span class="gc-cv-title"><a href="#work-cue-2026">Cue</a> <span class="gc-sep">|</span> flute, bass clarinet, horn, trumpet, trombone, percussion, piano, violin, viola, cello, and conductor</span>
+          </div>
+          <div class="gc-cv-row">
+            <span class="gc-cv-year">2022</span>
+            <span class="gc-cv-title"><a href="#work-plusminus1-2022">±1</a> <span class="gc-sep">|</span> flute, alto flute, bass clarinet, percussion, piano, violin, two cellos, and conductor</span>
+          </div>
+          <div class="gc-cv-row">
+            <span class="gc-cv-year">2022</span>
+            <span class="gc-cv-title"><a href="#work-fancy-doubt-2022">Fancy Doubt</a> <span class="gc-sep">|</span> orchestra</span>
+          </div>
+          <div class="gc-cv-row">
+            <span class="gc-cv-year">2021</span>
+            <span class="gc-cv-title"><a href="#work-happening-2021">Happening</a> <span class="gc-sep">|</span> flute, clarinet, horn, piano, accordion, violin, viola, and cello</span>
+          </div>
+          <div class="gc-cv-row">
+            <span class="gc-cv-year">2019</span>
+            <span class="gc-cv-title"><a href="#work-wind-orchestra-arrangement-2019">Arrangement for Wind Orchestra</a> <span class="gc-sep">|</span> symphonic wind orchestra</span>
+          </div>
+        </details>
+
+        <details class="gc-cv-group gc-cv-group-toggle">
+          <summary class="gc-cv-group-title">Ensemble for 2–5 Instruments</summary>
+          <div class="gc-cv-row">
+            <span class="gc-cv-year">2026</span>
+            <span class="gc-cv-title"><a href="#work-be-piano-2026">Be Piano</a> <span class="gc-sep">|</span> violin and piano</span>
+          </div>
+          <div class="gc-cv-row">
+            <span class="gc-cv-year">2025</span>
+            <span class="gc-cv-title"><a href="#work-yecheon-2025">Yecheon</a> <span class="gc-sep">|</span> flute, viola d'amore, organ, percussion, and choreography</span>
+          </div>
+          <div class="gc-cv-row">
+            <span class="gc-cv-year">2025</span>
+            <span class="gc-cv-title"><a href="#work-idiomatic-redemption-2025">Idiomatic Redemption (failed)</a> <span class="gc-sep">|</span> bass clarinet, violin, cello, and piano</span>
+          </div>
+          <div class="gc-cv-row">
+            <span class="gc-cv-year">2024</span>
+            <span class="gc-cv-title"><a href="#work-overlapped-tada-data-2024">Overlapped Ta-da Data</a> <span class="gc-sep">|</span> accordion duo</span>
+          </div>
+          <div class="gc-cv-row">
+            <span class="gc-cv-year">2024</span>
+            <span class="gc-cv-title"><a href="#work-words-whiskey-sax-2024">If Our Words Were Whiskey II</a> <span class="gc-sep">|</span> saxophone quartet</span>
+          </div>
+          <div class="gc-cv-row">
+            <span class="gc-cv-year">2023</span>
+            <span class="gc-cv-title"><a href="#work-words-whiskey-quartet-2023">If Our Words Were Whiskey I</a> <span class="gc-sep">|</span> string quartet</span>
+          </div>
+          <div class="gc-cv-row">
+            <span class="gc-cv-year">2022</span>
+            <span class="gc-cv-title"><a href="#work-greetings-ii-2022">Greetings II</a> <span class="gc-sep">|</span> bass clarinet and electric guitar</span>
+          </div>
+          <div class="gc-cv-row">
+            <span class="gc-cv-year">2021</span>
+            <span class="gc-cv-title"><a href="#work-live-and-let-live-2021">Live and let live</a> <span class="gc-sep">|</span> B♭ clarinet and piano</span>
+          </div>
+          <div class="gc-cv-row">
+            <span class="gc-cv-year">2020</span>
+            <span class="gc-cv-title"><a href="#work-let-out-your-breath-2020">Let out your breath</a> <span class="gc-sep">|</span> wind quintet</span>
+          </div>
+          <div class="gc-cv-row">
+            <span class="gc-cv-year">2019</span>
+            <span class="gc-cv-title"><a href="#work-rough-trio-2019">Rough Trio</a> <span class="gc-sep">|</span> violin, viola, and cello</span>
+          </div>
+          <div class="gc-cv-row">
+            <span class="gc-cv-year">2019</span>
+            <span class="gc-cv-title"><a href="#work-two-2019">Two</a> <span class="gc-sep">|</span> tenor, viola, and piano</span>
+          </div>
+          <div class="gc-cv-row">
+            <span class="gc-cv-year">2019</span>
+            <span class="gc-cv-title"><a href="#work-friction-2019">Friction</a> <span class="gc-sep">|</span> viola and inside piano</span>
+          </div>
+        </details>
+        </div>
+      </section>
+    </main>
+  </div>
+<script>
+(function () {
+  function send(payload) {
+    if (window.goatcounter && window.goatcounter.count) {
+      window.goatcounter.count(payload);
+    }
+  }
+
+  // count.js is loaded async, so a hit fired before it arrives is dropped;
+  // hold the first one briefly and retry rather than losing it
+  function sendWhenReady(payload, tries) {
+    if (window.goatcounter && window.goatcounter.count) { send(payload); return; }
+    if ((tries || 0) > 20) { return; }
+    setTimeout(function () { sendWhenReady(payload, (tries || 0) + 1); }, 250);
+  }
+
+  function panel(id) {
+    // the index is already "/", and the bio opens by default on wide screens,
+    // so counting it would only record the few people who reopen it
+    if (!id || id === "intro" || id === "bio") { return null; }
+    var el = document.getElementById(id);
+    if (!el) { return null; }
+    var h = el.querySelector(".gc-work-title");
+    return { path: id, title: h ? h.textContent.trim() : id };
+  }
+
+  window.addEventListener("hashchange", function () {
+    var p = panel(location.hash.replace("#", ""));
+    if (p) { send(p); }
+  });
+
+  // someone arriving on a direct link to a work, the bio or the CV
+  var first = panel(location.hash.replace("#", ""));
+  if (first) { sendWhenReady(first); }
+
+  var statement = document.querySelector(".gc-statement-toggle");
+  if (statement) {
+    statement.addEventListener("toggle", function () {
+      if (statement.open) {
+        send({ path: "statement", title: "Statement", event: true });
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>
